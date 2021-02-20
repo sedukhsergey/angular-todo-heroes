@@ -1,0 +1,17 @@
+<div *ngIf= "todo" id="{{'edit-todo-container-' + todo.id}}">
+		<label>
+			<input
+				[(ngModel)]="buffer"
+				placeholder="name"
+				appAutofocus
+			/>
+			<button
+				id="save-edit-todo"
+				appClickStopPropagation
+				(click)="handleSave($event)"
+			>Save</button>
+			<button
+				(click)="handleCancel()"
+			>Cancel</button>
+		</label>
+</div>

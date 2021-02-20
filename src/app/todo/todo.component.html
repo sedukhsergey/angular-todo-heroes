@@ -1,0 +1,10 @@
+<div *ngIf="todo" class="todo">
+	<span *ngIf="!isEdited" (click)="handleTodoEdit()">{{todo.text}}</span>
+	<br>
+	<div *ngIf="isEdited">
+		<app-todo-edit
+			[todo]="todo"
+			[handleCancel]="handleCancel"
+		></app-todo-edit>
+	</div>
+</div>
