@@ -13,7 +13,6 @@ export class HeroesComponent implements OnInit {
   constructor() { }
 
   async ngOnInit(): Promise<void> {
-    console.log('On mount this.heroes', this.heroes);
   }
 
   onSelect(hero: Hero): void {

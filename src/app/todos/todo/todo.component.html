@@ -1,5 +1,8 @@
 <div *ngIf="todo" class="todo">
-	<span *ngIf="!isEdited" (click)="handleTodoEdit()">{{todo.text}}</span>
+	<div *ngIf="!isEdited">
+		<span (click)="handleTodoEdit()">{{todo.text}}</span>
+		<button (click)="handleDelete.emit(todo.id)">X</button>
+	</div>
 	<br>
 	<div *ngIf="isEdited">
 		<app-todo-edit

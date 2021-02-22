@@ -1,0 +1,14 @@
+
+<label for="title">
+	<input
+		class="todo-input"
+		id="title"
+		name="title"
+		[value]="title"
+		(keyup.enter)="changeTitle($event)"
+    #input
+	>
+</label>
+<button class='btn'(click)="submitValue(input.value)">
+	Save
+</button>

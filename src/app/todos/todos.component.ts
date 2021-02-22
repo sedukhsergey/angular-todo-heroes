@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Todo} from '../todo/dto/todo';
+import {Todo} from './todo/dto/todo';
 
 @Component({
   selector: 'app-todos',
@@ -8,9 +8,19 @@ import {Todo} from '../todo/dto/todo';
 })
 export class TodosComponent implements OnInit {
   todosList: Todo[] = [{id: 1, text: 'some todo text'}, {id: 2, text: 'another'}];
-  constructor() { }
+  someValue = 'Parent';
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  handleAddTodo = (text: string) => {
+    this.todosList.push({id: this.todosList.length + 1, text});
+  }
+
+  handleDelete = (id: number) => {
+    this.todosList = this.todosList.filter(item => item.id !== id);
   }
 
 }
