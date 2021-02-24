@@ -1,3 +1,28 @@
 <div class="todo-item">
-	{{ item.title }}
+	<div class="actions">
+		<button class="btn btn-red" (click)="removeItem()">
+			remove
+		</button>
+		<button  class="btn-blue btn" (click)="handleEdited()">Update</button>
+		<input
+			type="checkbox"
+			class="todo-checkbox"
+			[(ngModel)]="item.completed"
+			(click)="completeItem()"
+		/>
+	</div>
+	<div>
+			<span *ngIf="isEdited" class="input-container">
+		<input
+			type="text"
+			[(ngModel)]="item.title"
+			class="todo-input"
+		>
+	</span>
+		<div class="input-container">
+		<span *ngIf="!isEdited" class="todo-title" [ngClass]="{'todo-complete': item.completed}">
+			{{ item.title }}
+		</span>
+		</div>
+	</div>
 </div>

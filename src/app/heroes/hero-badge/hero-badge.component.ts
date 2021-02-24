@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeroBadgeComponent implements OnInit {
 @Input() name?: string;
 @Input() id?: number;
+@Input() isSelected: boolean;
   constructor() { }
 
   ngOnInit(): void {

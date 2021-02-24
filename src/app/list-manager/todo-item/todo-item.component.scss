@@ -16,3 +16,13 @@
   flex-grow: 1;
   padding-left: 11px;
 }
+
+.todo-complete {
+  text-decoration: line-through;
+}
+
+.input-container {
+  max-width: 300px;
+  width: 100%;
+  text-align: right;
+}

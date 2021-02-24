@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Hero} from '../hero';
-import { HEROES } from '../mock-heroes';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Hero} from './hero';
+import {HeroService} from './hero.service';
+import {Observable, fromEvent, Subscription} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroes',
@@ -8,11 +10,20 @@ import { HEROES } from '../mock-heroes';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[] = HEROES;
+  heroes: Hero[];
   selectedHero?: Hero;
-  constructor() { }
+  constructor(
+    private heroService: HeroService
+  ) { }
+
 
   async ngOnInit(): Promise<void> {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
 
   onSelect(hero: Hero): void {

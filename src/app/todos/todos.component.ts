@@ -9,10 +9,21 @@ import {Todo} from './todo/dto/todo';
 export class TodosComponent implements OnInit {
   todosList: Todo[] = [{id: 1, text: 'some todo text'}, {id: 2, text: 'another'}];
   someValue = 'Parent';
+  obj = {title: '1'};
+  count = 0;
+  count2 = 0;
   constructor() {
   }
-
   ngOnInit(): void {
+  }
+
+  increment1() {
+    this.count++
+  }
+
+
+  increment2() {
+    this.count2++
   }
 
   handleAddTodo = (text: string) => {

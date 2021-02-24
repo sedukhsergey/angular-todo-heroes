@@ -1,1 +1,4 @@
-<span class="badge">{{id}}</span> {{name}}
+<div class='item' [ngClass]="{'selected': isSelected}">
+	<span class="badge">{{id}}</span>
+	<span>{{name}}</span>
+</div>

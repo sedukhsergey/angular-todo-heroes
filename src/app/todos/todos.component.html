@@ -1,6 +1,12 @@
 <ul>
+    <button (click)="increment1()">Count1</button>
+    <button (click)="increment2()">Count2</button>
+    <input type="text" [(ngModel)]="obj.title">
     <li *ngFor="let todo of todosList">
         <app-todo
+          [obj]="obj"
+          [count]="count"
+          [count2]="count2"
           [todo]="todo"
           (handleDelete)="handleDelete($event)"
         ></app-todo>
