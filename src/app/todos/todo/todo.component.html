@@ -1,7 +1,4 @@
 <div *ngIf="todo" class="todo">
-	{{obj.title}}
-	{{count}}
-	{{count2}}
 	<div *ngIf="!isEdited">
 		<span (click)="handleTodoEdit()">{{todo.text}}</span>
 		<button (click)="handleDelete.emit(todo.id)">X</button>

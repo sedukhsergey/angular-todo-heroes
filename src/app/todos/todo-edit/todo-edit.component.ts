@@ -31,7 +31,7 @@ export class TodoEditComponent implements OnInit, OnDestroy {
       }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     document.removeEventListener('click', this.handleClickListener);
   }
 

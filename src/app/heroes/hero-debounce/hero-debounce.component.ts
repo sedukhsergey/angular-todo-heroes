@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {fromEvent, Observable, Subscription} from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
+import { Subscription} from 'rxjs';
 import {HeroService} from '../hero.service';
 
 @Component({
@@ -11,7 +10,6 @@ import {HeroService} from '../hero.service';
 export class HeroDebounceComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('input', {static: true}) input: ElementRef<HTMLInputElement>;
   inputSubscription: Subscription;
-  inputValue = '';
   debouncedValue = '';
 
   constructor(
@@ -21,19 +19,17 @@ export class HeroDebounceComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.inputChanged()
+    this.inputChanged();
   }
 
   ngOnDestroy(): void {
-    this.inputSubscription.unsubscribe()
+    this.inputSubscription.unsubscribe();
   }
 
   inputChanged(): void {
     this.inputSubscription = this.heroService.debounceTextOnChange(this.input.nativeElement, 1000)
-      .subscribe((res: any) => {
-        const target = res.target as HTMLInputElement
-        console.log('res',res)
-        console.log('res',target.value)
+      .subscribe((res: Event) => {
+        const target = res.target as HTMLInputElement;
         this.debouncedValue = target.value;
       });
   }

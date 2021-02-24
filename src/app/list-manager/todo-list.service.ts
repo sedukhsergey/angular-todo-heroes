@@ -5,7 +5,7 @@ import {StorageService} from './storage.service';
 export type TodoItemUpdateContent = {
   title?: string;
   completed?: boolean;
-}
+};
 const todoListStorageKey = 'Todo_List';
 
 const defaultTodoList: TodoItem[] = [
@@ -31,22 +31,22 @@ export class TodoListService {
     return this.todoList;
   }
 
-  saveList() {
+  saveList(): void {
     this.storageService.setData(todoListStorageKey, this.todoList);
   }
 
   addItem(item: TodoItem): void {
     this.todoList.push(item);
-    this.saveList()
+    this.saveList();
   }
 
-  updateItem(item: TodoItem, changes: TodoItemUpdateContent) {
+  updateItem(item: TodoItem, changes: TodoItemUpdateContent): void {
     const index = this.todoList.indexOf(item);
     this.todoList[index] = { ...item, ...changes };
-    this.saveList()
+    this.saveList();
   }
 
-  deleteItem(item: TodoItem) {
+  deleteItem(item: TodoItem): void {
     const index = this.todoList.indexOf(item);
     this.todoList.splice(index, 1);
     this.saveList();

@@ -1,29 +1,32 @@
-import {ElementRef, Injectable} from '@angular/core';
-import {Observable, from, of, fromEvent} from 'rxjs';
-import {debounceTime, filter, map, throttle, throttleTime} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Observable, of, fromEvent} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
-import {Target} from '@angular/compiler';
 import {EventTargetLike} from 'rxjs/internal-compatibility';
+import {MessageService} from '../messages/message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
 
-  constructor() { }
+  constructor(
+    private readonly messageService: MessageService
+  ) { }
 
   getHeroes(): Observable<Hero[]> {
     const heroes = of(HEROES);
+    this.messageService.add('HeroService: fetched heroes');
     return heroes;
   }
 
   debounceTextOnChange(
-    nativeElement: EventTargetLike<ElementRef>,
+    nativeElement: EventTargetLike<KeyboardEvent>,
     interval: number,
-  ): Observable<ElementRef> {
-    return fromEvent(nativeElement, 'keyup')
-      .pipe(debounceTime(1000))
+  ): Observable<Event> {
+    return fromEvent<KeyboardEvent>(nativeElement, 'keyup')
+      .pipe(debounceTime(interval));
   }
 }

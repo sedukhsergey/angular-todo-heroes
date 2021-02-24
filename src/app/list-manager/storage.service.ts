@@ -14,7 +14,7 @@ export class StorageService {
     }
   }
 
-  setData(key: string, data: any) {
+  setData(key: string, data: any): void {
     localStorage.setItem(key, JSON.stringify(data));
   }
 }

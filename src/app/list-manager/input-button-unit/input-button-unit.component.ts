@@ -6,7 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./input-button-unit.component.scss']
 })
 export class InputButtonUnitComponent implements OnInit {
-  @Output() submit: EventEmitter<string> = new EventEmitter();
+  @Output() handleSubmit: EventEmitter<string> = new EventEmitter();
   title = '';
   constructor() {
   }
@@ -16,11 +16,11 @@ export class InputButtonUnitComponent implements OnInit {
 
   changeTitle(event: Event): void {
     const target = event.target as HTMLInputElement;
-    this.submit.emit(target.value);
+    this.handleSubmit.emit(target.value);
   }
 
-  submitValue(value: string) {
-    this.submit.emit(value)
+  submitValue(value: string): void {
+    this.handleSubmit.emit(value);
   }
 
 }

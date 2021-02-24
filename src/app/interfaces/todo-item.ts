@@ -7,5 +7,5 @@ export interface TodoItem {
 
 export interface UpdateItem {
   item: TodoItem;
-  changes: TodoItemUpdateContent
+  changes: TodoItemUpdateContent;
 }

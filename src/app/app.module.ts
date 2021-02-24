@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {TodosModule} from './todos/todos.module';
 import {HeroesModule} from './heroes/heroes.module';
 import {ListManagerModule} from './list-manager/list-manager.module';
+import {MessagesModule} from './messages/messages.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {ListManagerModule} from './list-manager/list-manager.module';
     AppRoutingModule,
     TodosModule,
     HeroesModule,
-    ListManagerModule
+    ListManagerModule,
+    MessagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

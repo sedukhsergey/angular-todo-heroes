@@ -17,7 +17,7 @@ export class TodoItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleEdited():void {
+  handleEdited(): void {
     this.isEdited = !this.isEdited;
   }
 
