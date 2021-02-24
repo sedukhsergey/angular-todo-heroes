@@ -1,8 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Todo} from './dto/todo';
-type Obj = {
-  title: string;
-};
+import {TodosService} from '../todos.service';
 
 @Component({
   selector: 'app-todo',
@@ -10,19 +8,20 @@ type Obj = {
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  @Output() handleDelete: EventEmitter<number> = new EventEmitter();
   isEdited = false;
-  @Input() todo: Todo = {id: 1, text: ''};
-  constructor() { }
+  @Input() todo: Todo;
+  constructor(
+    private readonly todosService: TodosService,
+  ) { }
 
   ngOnInit(): void {
   }
 
-  handleCancel = (): void => {
-    this.isEdited = false;
+  handleDeleteTodo(): void {
+    this.todosService.deleteTodo(this.todo);
   }
 
-  handleTodoEdit = (): void => {
-    this.isEdited = true;
+  handleTodoEditSwitcher = (): void => {
+    this.isEdited = !this.isEdited;
   }
 }

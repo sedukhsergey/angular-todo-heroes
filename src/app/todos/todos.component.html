@@ -1,11 +1,10 @@
 <ul>
-    <li *ngFor="let todo of todosList">
+    <li *ngFor="let todo of todoList">
         <app-todo
           [todo]="todo"
-          (handleDelete)="handleDelete($event)"
         ></app-todo>
     </li>
 </ul>
 
 
-<app-add-todo (handleAddTodo)="handleAddTodo($event)"></app-add-todo>
+<app-add-todo></app-add-todo>

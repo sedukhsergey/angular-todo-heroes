@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Todo} from '../todo/dto/todo';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {TodosService} from '../todos.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -7,15 +7,16 @@ import {Todo} from '../todo/dto/todo';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
-  @Output() handleAddTodo: EventEmitter<string> = new EventEmitter();
   text = '';
-  constructor() { }
+  constructor(
+    private readonly todosService: TodosService
+  ) { }
 
   ngOnInit(): void {
   }
 
   handleSaveTodo = () => {
-    this.handleAddTodo.emit(this.text);
+    this.todosService.addTodo(this.text);
     this.text = '';
   }
 

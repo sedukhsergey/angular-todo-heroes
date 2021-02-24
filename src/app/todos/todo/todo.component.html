@@ -1,13 +1,13 @@
 <div *ngIf="todo" class="todo">
 	<div *ngIf="!isEdited">
-		<span (click)="handleTodoEdit()">{{todo.text}}</span>
-		<button (click)="handleDelete.emit(todo.id)">X</button>
+		<span (click)="handleTodoEditSwitcher()">{{todo.text}}</span>
+		<button (click)="handleDeleteTodo()">X</button>
 	</div>
 	<br>
 	<div *ngIf="isEdited">
 		<app-todo-edit
 			[todo]="todo"
-			[handleCancel]="handleCancel"
+			(handleTodoEditSwitcher)="handleTodoEditSwitcher()"
 		></app-todo-edit>
 	</div>
 </div>

@@ -1,44 +1,62 @@
-import {Component, ElementRef, Input, OnInit, AfterViewInit, OnDestroy} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  AfterViewInit,
+  OnDestroy,
+  Output,
+  EventEmitter,
+  ViewChild,
+} from '@angular/core';
 import {Todo} from '../todo/dto/todo';
+import {TodosService} from '../todos.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-todo-edit',
   templateUrl: './todo-edit.component.html',
   styleUrls: ['./todo-edit.component.css']
 })
-export class TodoEditComponent implements OnInit, OnDestroy {
-  buffer = '';
-  oldContent = '';
-  @Input() todo: Todo = {id: 1, text: ''};
-  @Input() handleCancel: () => void = () => {};
-  constructor() { }
+export class TodoEditComponent implements OnInit, OnDestroy, AfterViewInit {
+  todoValue = '';
+  @ViewChild('todoInputRef', {static: true}) todoInputRef: ElementRef<HTMLInputElement>;
+  @Output() handleTodoEditSwitcher: EventEmitter<void> = new EventEmitter();
+  @Input() todo: Todo;
+
+  constructor(
+    private readonly todosService: TodosService
+  ) { }
+  documentSubscription: Subscription;
 
   ngOnInit(): void {
-    this.buffer = this.todo?.text || '';
-    this.oldContent = this.todo?.text || '';
+    this.todoValue = this.todo.text;
+  }
+
+  ngAfterViewInit(): void {
     setTimeout(() => {
-      document.addEventListener('click', this.handleClickListener);
+      this.initDocumentSubscription();
     }, 0);
   }
 
-  handleClickListener = (event: MouseEvent) => {
-      const ignoreClickOnMeElement = document.getElementById(`edit-todo-container-${this.todo.id}`);
-      const target = event.target as HTMLHtmlElement;
-      const isClickInsideElement = ignoreClickOnMeElement?.contains(target);
-      if (!isClickInsideElement) {
-        this.handleCancel();
-        return;
-      }
-  }
-
   ngOnDestroy(): void {
-    document.removeEventListener('click', this.handleClickListener);
+    this.documentSubscription.unsubscribe();
   }
 
-  handleSave(event: MouseEvent): void {
-    this.todo.text = this.buffer;
-    this.oldContent = this.buffer;
-    this.handleCancel();
+  initDocumentSubscription(): void {
+    this.documentSubscription = this.todosService.isMouseClickOutsideEvent(document)
+      .subscribe((res: Event) => {
+        const target = res.target as HTMLHtmlElement;
+        const isClickInsideElement = this.todoInputRef.nativeElement?.contains(target);
+        if (!isClickInsideElement) {
+          this.handleTodoEditSwitcher.emit();
+          return;
+        }
+      });
   }
 
+  handleSave(): void {
+    this.todosService.updateTodo(this.todo, {text: this.todoValue});
+    this.handleTodoEditSwitcher.emit();
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from './todo/dto/todo';
+import {TodosService} from './todos.service';
 
 @Component({
   selector: 'app-todos',
@@ -7,18 +8,17 @@ import {Todo} from './todo/dto/todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  todosList: Todo[] = [{id: 1, text: 'some todo text'}, {id: 2, text: 'another'}];
-  constructor() {
+  todoList: Todo[] = [];
+  constructor(
+    private readonly todosService: TodosService
+  ) {
   }
   ngOnInit(): void {
+    this.getTodos();
   }
 
-  handleAddTodo = (text: string) => {
-    this.todosList.push({id: this.todosList.length + 1, text});
-  }
-
-  handleDelete = (id: number) => {
-    this.todosList = this.todosList.filter(item => item.id !== id);
+  getTodos(): void {
+    this.todoList = this.todosService.getTodoList();
   }
 
 }
