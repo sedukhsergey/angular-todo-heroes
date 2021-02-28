@@ -1,4 +1,4 @@
-import {TodoItemUpdateContent} from '../list-manager/todo-list.service';
+import {TodoItemUpdateContent} from '../pages/list-manager/todo-list.service';
 
 export interface TodoItem {
   title: string;
