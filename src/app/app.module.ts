@@ -15,17 +15,21 @@ import {DashboardModule} from './pages/dashboard/dashboard.module';
 import {CommonModule} from '@angular/common';
 import {DebounceModule} from './modules/debounce/debounce.module';
 import { InMemoryDataService } from './in-memory-data.service';
+import { CrisisModule } from './pages/crisis/crisis.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    AppRoutingModule,
     HttpClientModule,
     CommonModule,
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     TodosModule,
     HeroesModule,
     ListManagerModule,
@@ -34,9 +38,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     HeaderModule,
     DashboardModule,
     DebounceModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    CrisisModule
   ],
   providers: [],
   exports: [

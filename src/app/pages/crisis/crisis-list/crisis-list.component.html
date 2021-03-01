@@ -1,0 +1,6 @@
+<div>
+	<nav *ngFor="let crisis of crisisList">
+		{{crisis.id}}
+		<a [routerLink]="['/crisis', crisis.id]">{{crisis.name}}</a>
+	</nav>
+</div>
