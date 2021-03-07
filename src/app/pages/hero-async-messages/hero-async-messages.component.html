@@ -1,0 +1,6 @@
+<h2>Async Hero Message and AsyncPipe</h2>
+<p>Message: {{ message$ | async }}</p>
+<button (click)="resend()">Resend</button>
+<button (click)="start()">Start</button>
+<span>{{count$ | async}}</span>
+<span *ngFor="let item of array">{{item}}</span>

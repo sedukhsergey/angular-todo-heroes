@@ -6,3 +6,11 @@
 	</a>
 </div>
 <app-hero-search></app-hero-search>
+<div *ngIf="isOpen">IsOpen</div>
+<app-modal
+	*ngIf="isOpen"
+	[onClose]="modalClose"
+>
+	<div class="modalContent">Modal Content</div>
+</app-modal>
+<button (click)="modalOpen()">OPEN</button>

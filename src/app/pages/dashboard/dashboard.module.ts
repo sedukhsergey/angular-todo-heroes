@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import {AppRoutingModule} from '../../app-routing.module';
 import {HeroesModule} from '../heroes/heroes.module';
+import {ModalModule} from '../../modules/modal/modal.module';
 
 
 
@@ -11,7 +12,8 @@ import {HeroesModule} from '../heroes/heroes.module';
   imports: [
     CommonModule,
     AppRoutingModule,
-    HeroesModule
+    HeroesModule,
+    ModalModule
   ]
 })
 export class DashboardModule { }

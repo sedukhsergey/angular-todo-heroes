@@ -1,0 +1,23 @@
+<div
+	class="container"
+	[ngClass]="{
+		'fadeIn': fadeType === 'in',
+		'fadeOut': fadeType === 'out'
+	}"
+	(transitionend)="transitionEnd($event)"
+>
+	<div class="boxDialog">
+		<input type="text" [(ngModel)]="text">
+<!--		{header({ handleClick })}-->
+		<ng-content></ng-content>
+		<div class="boxContent">
+			<ng-content></ng-content>
+		</div>
+		<ng-template
+			[ngTemplateOutlet]="templateRef"
+			[ngTemplateOutletContext]="{$implicit:{
+				handleClose: handleClose
+			}}"></ng-template>
+	</div>
+	<area class="overlay" />
+</div>

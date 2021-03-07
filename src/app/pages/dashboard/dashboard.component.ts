@@ -9,11 +9,19 @@ import {HeroService} from '../heroes/hero.service';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-
+  isOpen = false;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
+  }
+
+  modalOpen = () => {
+    this.isOpen = true;
+  }
+
+  modalClose = () => {
+    this.isOpen = false;
   }
 
   getHeroes(): void {

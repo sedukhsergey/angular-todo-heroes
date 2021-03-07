@@ -16,6 +16,11 @@ import {CommonModule} from '@angular/common';
 import {DebounceModule} from './modules/debounce/debounce.module';
 import { InMemoryDataService } from './in-memory-data.service';
 import { CrisisModule } from './pages/crisis/crisis.module';
+import {PipesModule} from './pages/pipes/pipes.module';
+import {ExponentialStrengthModule} from './pipes/exponential-strength/exponential-strength.module';
+import {FlyingHeroesModule} from './pages/flying-heroes/flying-heroes.module';
+import {HeroAsyncMessagesModule} from './pages/hero-async-messages/hero-async-messages.module';
+import {TodosServerFetchingModule} from './pages/todos-server-fetching/todos-server-fetching.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,6 @@ import { CrisisModule } from './pages/crisis/crisis.module';
       InMemoryDataService, { dataEncapsulation: false }
     ),
     AppRoutingModule,
-    HttpClientModule,
     CommonModule,
     BrowserModule,
     FormsModule,
@@ -38,7 +42,13 @@ import { CrisisModule } from './pages/crisis/crisis.module';
     HeaderModule,
     DashboardModule,
     DebounceModule,
-    CrisisModule
+    CrisisModule,
+    PipesModule,
+    ExponentialStrengthModule,
+    FlyingHeroesModule,
+    HeroAsyncMessagesModule,
+    TodosServerFetchingModule,
+    HttpClientModule,
   ],
   providers: [],
   exports: [
@@ -46,3 +56,4 @@ import { CrisisModule } from './pages/crisis/crisis.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

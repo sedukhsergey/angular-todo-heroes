@@ -1,3 +1,10 @@
+:root {
+  --main-bg-color: pink;
+  --primary-background-color: #fafafc;
+  --main-text-color: #444444;
+}
+
+
 html, body, div, span,
 h1, p, ul, li {
   padding: 0;
@@ -5,6 +12,8 @@ h1, p, ul, li {
   font: inherit;
   vertical-align: baseline;
 }
+
+
 
 body {
   background: #f1f1f1;
@@ -80,3 +89,4 @@ ol, ul {
   text-align: center;
   letter-spacing: -0.8px;
 }
+

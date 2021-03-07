@@ -6,6 +6,10 @@ import {TodosComponent} from './pages/todos/todos.component';
 import {MissionComponent} from './pages/mission/mission.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {HeroDetailComponent} from './pages/heroes/hero-detail/hero-detail.component';
+import {PipesComponent} from './pages/pipes/pipes.component';
+import {FlyingHeroesComponent} from './pages/flying-heroes/flying-heroes.component';
+import {HeroAsyncMessagesComponent} from './pages/hero-async-messages/hero-async-messages.component';
+import {TodosServerFetchingComponent} from './pages/todos-server-fetching/todos-server-fetching.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -15,6 +19,10 @@ const routes: Routes = [
   { path: 'todos', component: TodosComponent },
   { path: 'mission', component: MissionComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
+  { path: 'pipes', component: PipesComponent },
+  { path: 'flying-heroes', component: FlyingHeroesComponent},
+  { path: 'hero-async', component: HeroAsyncMessagesComponent},
+  { path: 'todos-server-fetching', component: TodosServerFetchingComponent},
 ];
 
 @NgModule({

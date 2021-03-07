@@ -1,0 +1,10 @@
+<p>The hero's birthday is {{ birthday | date:'MMMM/dd/yy' }}</p>
+<button (click)="handleChangeFormat()">Change format</button>
+
+<div class="container">
+	<div>Normal power: <input type="number" [(ngModel)]="power"></div>
+	<div>Boost factor: <input type="number" [(ngModel)]="factor"></div>
+	<p>
+		Super Hero Power: {{power | exponentialStrength: factor}}
+	</p>
+</div>

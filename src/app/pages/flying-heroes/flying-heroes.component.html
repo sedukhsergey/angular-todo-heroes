@@ -1,0 +1,14 @@
+New hero:
+<input
+	type="text"
+	#box
+	(keyup.enter)="addHero(box.value); box.value=''"
+	placeholder="hero name"
+>
+<input type="checkbox" [checked]="canFly" (change)="onFlyChange()">
+<button (click)="addHero(box.value); box.value='';">Add</button>
+<button (click)="reset()">Reset</button>
+<div *ngFor="let hero of (heroes | flyingHeroes)">
+	<span>{{hero.name}}</span>
+	<span *ngIf="hero.canFly">Fly</span>
+</div>
