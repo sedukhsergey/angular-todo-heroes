@@ -25,7 +25,6 @@ export class ModalContainerComponent implements OnInit {
   };
 
   transitionEnd(e: any): any {
-    console.log('e',e)
     if (e.propertyName !== 'opacity' || this.fadeType === 'in') return;
 
     if (this.fadeType === 'out') {

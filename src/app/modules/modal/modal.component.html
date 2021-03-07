@@ -1,9 +1,11 @@
 <app-modal-container
 	[onClose]="onClose"
 >
-	<div class="header">Modal Header</div>
-	<ng-content></ng-content>
 	<ng-template let-props>
+		<div class="header">Modal Header</div>
+		<div class="boxContent">
+			<ng-content></ng-content>
+		</div>
 		<app-modal-footer
 			[handleClose]="props.handleClose"
 		></app-modal-footer>
