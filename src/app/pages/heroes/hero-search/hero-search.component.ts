@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
 
 import {
-  debounceTime, distinctUntilChanged, switchMap, tap
+  debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
 
 import { Hero } from '../hero';

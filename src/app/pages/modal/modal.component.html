@@ -1,0 +1,7 @@
+<app-modal
+	*ngIf="isOpen"
+	[onClose]="modalClose"
+>
+	<div class="modalContent">dModal Content</div>
+</app-modal>
+<button (click)="modalOpen()">OPEN</button>

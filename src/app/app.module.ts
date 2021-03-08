@@ -12,6 +12,7 @@ import {MessagesModule} from './modules/messages/messages.module';
 import {MissionModule} from './pages/mission/mission.module';
 import {HeaderModule} from './modules/header/header.module';
 import {DashboardModule} from './pages/dashboard/dashboard.module';
+import { ModalPageModule } from './pages/modal/modal.module';
 import {CommonModule} from '@angular/common';
 import {DebounceModule} from './modules/debounce/debounce.module';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -21,6 +22,9 @@ import {ExponentialStrengthModule} from './pipes/exponential-strength/exponentia
 import {FlyingHeroesModule} from './pages/flying-heroes/flying-heroes.module';
 import {HeroAsyncMessagesModule} from './pages/hero-async-messages/hero-async-messages.module';
 import {TodosServerFetchingModule} from './pages/todos-server-fetching/todos-server-fetching.module';
+import {InputFormModule} from './pages/input-form/input-form.module';
+import { TabContainerComponent } from './tab-container/tab-container.component';
+import {ReusableTemplateModule} from './pages/reusable-template/reusable-template.module';
 
 @NgModule({
   declarations: [
@@ -49,9 +53,13 @@ import {TodosServerFetchingModule} from './pages/todos-server-fetching/todos-ser
     HeroAsyncMessagesModule,
     TodosServerFetchingModule,
     HttpClientModule,
+    ModalPageModule,
+    InputFormModule,
+    ReusableTemplateModule,
   ],
   providers: [],
   exports: [
+    TabContainerComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -13,7 +13,6 @@ export class ModalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.body =  document.querySelector('body');
     if (this.body) {
-      console.log('init body')
       this.body.style.cssText = 'overflow: hidden; position: fixed;';
     }
   }

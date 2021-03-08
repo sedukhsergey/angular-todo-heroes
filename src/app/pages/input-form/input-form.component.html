@@ -1,0 +1,11 @@
+<ng-template #customTabButtons>
+	<div class="custom-class">
+		<button class="tab-button" (click)="login()">
+			{{loginText}}
+		</button>
+		<button class="tab-button" (click)="signUp()">
+			{{signUpText}}
+		</button>
+	</div>
+</ng-template>
+<app-tab-container [headerTemplate]="customTabButtons"></app-tab-container>

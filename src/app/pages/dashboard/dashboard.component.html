@@ -6,6 +6,8 @@
 	</a>
 </div>
 <app-hero-search></app-hero-search>
+<app-resize-value [(size)]="fontSizePx"></app-resize-value>
+<div [style.font-size.px]="fontSizePx">Resizable Text</div>
 <app-modal
 	*ngIf="isOpen"
 	[onClose]="modalClose"

@@ -10,6 +10,7 @@ import {HeroService} from '../heroes/hero.service';
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
   isOpen = false;
+  fontSizePx = 16;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {

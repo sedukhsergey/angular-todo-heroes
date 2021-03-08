@@ -1,0 +1,12 @@
+<div class="container">
+	Reusable item
+	<div class="cards" *ngFor="let user of usersList">
+		<app-card [img]="user.img">
+			<ng-template>
+				<h4><b>{{user.name}}</b></h4>
+				<p>{{user.id}}</p>
+			</ng-template>
+			<h4><b>TEMPLATE</b></h4>
+		</app-card>
+	</div>
+</div>

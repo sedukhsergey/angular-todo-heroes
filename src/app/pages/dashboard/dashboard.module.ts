@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import {AppRoutingModule} from '../../app-routing.module';
 import {HeroesModule} from '../heroes/heroes.module';
 import {ModalModule} from '../../modules/modal/modal.module';
+import {ResizeValueModule} from '../../components/resize-value/resize-value.module';
 
 
 
@@ -13,7 +14,8 @@ import {ModalModule} from '../../modules/modal/modal.module';
     CommonModule,
     AppRoutingModule,
     HeroesModule,
-    ModalModule
+    ModalModule,
+    ResizeValueModule
   ]
 })
 export class DashboardModule { }

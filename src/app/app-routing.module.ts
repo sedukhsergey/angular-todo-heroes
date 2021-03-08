@@ -10,6 +10,9 @@ import {PipesComponent} from './pages/pipes/pipes.component';
 import {FlyingHeroesComponent} from './pages/flying-heroes/flying-heroes.component';
 import {HeroAsyncMessagesComponent} from './pages/hero-async-messages/hero-async-messages.component';
 import {TodosServerFetchingComponent} from './pages/todos-server-fetching/todos-server-fetching.component';
+import {ModalComponent} from './pages/modal/modal.component';
+import {InputFormComponent} from './pages/input-form/input-form.component';
+import {ReusableTemplateComponent} from './pages/reusable-template/reusable-template.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -23,6 +26,9 @@ const routes: Routes = [
   { path: 'flying-heroes', component: FlyingHeroesComponent},
   { path: 'hero-async', component: HeroAsyncMessagesComponent},
   { path: 'todos-server-fetching', component: TodosServerFetchingComponent},
+  { path: 'modal', component: ModalComponent},
+  { path: 'input-form', component: InputFormComponent},
+  { path: 'reusable-template', component: ReusableTemplateComponent},
 ];
 
 @NgModule({
