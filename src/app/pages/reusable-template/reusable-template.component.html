@@ -15,4 +15,30 @@
 		<input [ngModel]="currentItem.name"  (ngModelChange)="setUppercaseName($event)" name='name' id="example-ngModel">
 		{{currentItem.name}}
 	</form>
+	<div *ngFor="let item of users; trackBy: trackByItems">
+		({{item.id}}) {{item.name}}
+	</div>
+
+	<p>
+		I turned the corner
+		<ng-container *ngIf="anotherUser">
+			and saw {{anotherUser.name}}. I waved
+		</ng-container>
+		and continued on my way.
+	</p>
+
+	<div>
+		Pick your favorite hero
+		(<label><input type="checkbox" [checked]="showSad" (change)="showSad = !showSad">show sad</label>)
+	</div>
+	<p *ngIf="hero" >HERO: {{hero.name}} {{hero.id}} {{hero.emotion}}</p>
+	<select [(ngModel)]="hero">
+		<option [ngValue]="emptyHero">{{emptyHero.name}}</option>
+		<ng-container *ngFor="let h of heroes">
+			<ng-container *ngIf="showSad || h.emotion !== 'sad'">
+				<option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+			</ng-container>
+		</ng-container>
+	</select>
+
 </div>
