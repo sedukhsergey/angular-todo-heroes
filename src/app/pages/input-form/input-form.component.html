@@ -1,11 +1,28 @@
 <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
 	<label for="name">Name <input class="form-control" name="name" ngModel required />
 	</label>
+
+	<p>
+	Chosen Gender: {{itemForm.value.gender}}
+		<label for="gender">
+			<input type="radio" value="male" name="gender" ngModel> Male
+			<input type="radio" value="female" name="gender" ngModel> Female
+		</label>
+	</p>
+
 	<button type="submit">Submit</button>
 </form>
 
 <div [hidden]="!itemForm.form.valid">
 	<p>{{ submitMessage }}</p>
+</div>
+
+
+
+
+<div *ngIf="true" >
+	<input #ref2 type="text" [(ngModel)]="secondExample" />
+	<span>Value: {{ ref2.value }}</span> <!-- doesn't work -->
 </div>
 
 
@@ -20,8 +37,3 @@
 	</div>
 </ng-template>
 <app-tab-container [headerTemplate]="customTabButtons"></app-tab-container>
-
-<div *ngIf="true" >
-	<input #ref2 type="text" [(ngModel)]="secondExample" />
-	<span>Value: {{ ref2.value }}</span> <!-- doesn't work -->
-</div>

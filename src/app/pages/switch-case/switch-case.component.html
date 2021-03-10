@@ -1,1 +1,22 @@
-<p>switch-case works!</p>
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+	<label for="name">Name <input class="form-control" name="name" ngModel required />
+	</label>
+
+	<p>
+		<label for="gender">
+			<input type="radio" value="male" name="gender" ngModel> Male
+			<input type="radio" value="female" name="gender" ngModel> Female
+			<input type="radio" value="default" name="gender" ngModel> None
+		</label>
+	</p>
+
+	<div [ngSwitch]="itemForm.value.gender">
+		<p *ngSwitchCase="'male'">Male</p>
+		<p *ngSwitchCase="'female'">Female</p>
+		<p *ngSwitchDefault>No chosen</p>
+	</div>
+
+	<button type="submit">Submit</button>
+</form>
+
+

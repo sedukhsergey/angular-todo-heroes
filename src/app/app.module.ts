@@ -25,6 +25,7 @@ import {TodosServerFetchingModule} from './pages/todos-server-fetching/todos-ser
 import {InputFormModule} from './pages/input-form/input-form.module';
 import { TabContainerComponent } from './tab-container/tab-container.component';
 import {ReusableTemplateModule} from './pages/reusable-template/reusable-template.module';
+import {SwitchCaseModule} from './pages/switch-case/switch-case.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {ReusableTemplateModule} from './pages/reusable-template/reusable-templat
     ModalPageModule,
     InputFormModule,
     ReusableTemplateModule,
+    SwitchCaseModule,
   ],
   providers: [],
   exports: [

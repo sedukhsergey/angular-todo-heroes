@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputFormComponent } from './input-form.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppModule} from '../../app.module';
 import {TabContainerComponent} from '../../tab-container/tab-container.component';
 
@@ -12,6 +12,7 @@ import {TabContainerComponent} from '../../tab-container/tab-container.component
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [TabContainerComponent]
 })

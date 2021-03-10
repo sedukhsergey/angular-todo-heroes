@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+interface CustomForm {
+  gender: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-input-form',
@@ -9,9 +13,9 @@ import {NgForm} from '@angular/forms';
 export class InputFormComponent implements OnInit {
   loginText = 'Login';
   signUpText = 'Sign Up';
-  lessons = ['Lesson 1', 'Lessons 2'];
+  gender = '';
   secondExample = ''
-  submitMessage = 'Some submit message'
+  submitMessage = 'Some submit message';
   constructor() { }
   login() {
     console.log('Login');
@@ -22,7 +26,7 @@ export class InputFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log('form',form)
+    console.log('form',form.form.get('gender'))
   }
 
   ngOnInit(): void {
