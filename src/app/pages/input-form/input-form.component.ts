@@ -10,7 +10,9 @@ export class InputFormComponent implements OnInit {
   loginText = 'Login';
   signUpText = 'Sign Up';
   lessons = ['Lesson 1', 'Lessons 2'];
-
+  secondExample = ''
+  submitMessage = 'Some submit message'
+  constructor() { }
   login() {
     console.log('Login');
   }
@@ -18,7 +20,10 @@ export class InputFormComponent implements OnInit {
   signUp() {
     console.log('Sign Up');
   }
-  constructor() { }
+
+  onSubmit(form: NgForm) {
+    console.log('form',form)
+  }
 
   ngOnInit(): void {
   }

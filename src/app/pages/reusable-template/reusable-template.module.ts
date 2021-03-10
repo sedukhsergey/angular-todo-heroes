@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReusableTemplateComponent } from './reusable-template.component';
 import {CardModule} from '../../components/card/card.module';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import {CardModule} from '../../components/card/card.module';
   declarations: [ReusableTemplateComponent],
   imports: [
     CommonModule,
-    CardModule
+    CardModule,
+    FormsModule
   ],
 })
 export class ReusableTemplateModule { }

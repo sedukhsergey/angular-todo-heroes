@@ -1,3 +1,14 @@
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+	<label for="name">Name <input class="form-control" name="name" ngModel required />
+	</label>
+	<button type="submit">Submit</button>
+</form>
+
+<div [hidden]="!itemForm.form.valid">
+	<p>{{ submitMessage }}</p>
+</div>
+
+
 <ng-template #customTabButtons>
 	<div class="custom-class">
 		<button class="tab-button" (click)="login()">
@@ -9,3 +20,8 @@
 	</div>
 </ng-template>
 <app-tab-container [headerTemplate]="customTabButtons"></app-tab-container>
+
+<div *ngIf="true" >
+	<input #ref2 type="text" [(ngModel)]="secondExample" />
+	<span>Value: {{ ref2.value }}</span> <!-- doesn't work -->
+</div>

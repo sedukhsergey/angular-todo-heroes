@@ -6,7 +6,13 @@
 				<h4><b>{{user.name}}</b></h4>
 				<p>{{user.id}}</p>
 			</ng-template>
-			<h4><b>TEMPLATE</b></h4>
 		</app-card>
 	</div>
+		<div [class]="getClasses()">This div is special {{isClicked}}</div>
+		<button (click)="setCurrentClasses()">Click</button>
+	<label for="example-ngModel">[(ngModel)]:</label>
+	<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+		<input [ngModel]="currentItem.name"  (ngModelChange)="setUppercaseName($event)" name='name' id="example-ngModel">
+		{{currentItem.name}}
+	</form>
 </div>
