@@ -26,6 +26,7 @@ import {InputFormModule} from './pages/input-form/input-form.module';
 import { TabContainerComponent } from './tab-container/tab-container.component';
 import {ReusableTemplateModule} from './pages/reusable-template/reusable-template.module';
 import {SwitchCaseModule} from './pages/switch-case/switch-case.module';
+import {RadioModule} from './components/radio/radio.module';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {SwitchCaseModule} from './pages/switch-case/switch-case.module';
     InputFormModule,
     ReusableTemplateModule,
     SwitchCaseModule,
+    RadioModule,
   ],
   providers: [],
   exports: [

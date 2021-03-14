@@ -28,7 +28,7 @@ export class HeroService {
 
   private handleError<T>(operation = 'operation', result?: T): (error: any) => Observable<T> {
     return (error: any): Observable<T> => {
-      console.error(error); // log to console instead
+      console.error(error); // logger to console instead
       this.log(`${operation} failed: ${error.message}`);
 
       return of(result as T);

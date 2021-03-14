@@ -1,13 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Form, NgForm} from '@angular/forms';
+import {LoggerService} from '../../providers/logger/logger.service';
+import {EmittedValue} from '../../interfaces/input-form-value';
+
+interface Gender {
+  id: number;
+  name: string;
+  title: string;
+  value: string;
+}
+
+const gendersList = [
+  {id: 1, name: 'gender', value: 'male', title: 'Male'},
+  {id: 2, name: 'gender', value: 'female', title: 'Female'}
+];
 
 interface Item {
-  feature: string;
+  label: string;
+  id: number;
 }
 
-interface Model {
-  options: number;
-  name: string;
-}
+const items: Item[] = [{
+  id: 2,
+  label: 'Bob',
+},
+  {
+    id: 3,
+    label: 'Ann',
+  },
+  {
+    id: 4,
+    label: 'Slag',
+  },
+  {
+    id: 5,
+    label: 'Mary',
+  }
+]
+
 
 @Component({
   selector: 'app-switch-case',
@@ -15,22 +45,20 @@ interface Model {
   styleUrls: ['./switch-case.component.css']
 })
 export class SwitchCaseComponent implements OnInit {
-  currentItem: Item = {
-    feature: 'vintaged'
+  @ViewChild('itemForm') itemForm: NgForm;
+  items = items;
+  radioList: Gender[] = gendersList;
+  constructor(
+    private readonly loggerService: LoggerService
+  ) { }
+
+  handleFormChange({field, value}: EmittedValue): void {
+    this.itemForm.value[field] = value;
+    this.loggerService.log(value)
   }
 
-  model: Model = {
-    options: 2,
-    name: ''
-  }
-
-  constructor() { }
-
-  handleFormChange(form: any) {
-    console.log('handleFormChange form',form)
-  }
-
-  onSubmit(form: any) {
+  onSubmit(form: NgForm): void {
+    console.log('onSubmit form',form.value)
 
   }
 

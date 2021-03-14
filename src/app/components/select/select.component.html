@@ -1,0 +1,6 @@
+<select [ngModel]="defaultValue" [name]="name" [required]="isRequired">
+	<!--			<option [ngValue]="emptyHero">{{emptyHero.name}}</option>-->
+	<ng-container *ngFor="let item of items">
+		<option [ngValue]="item">{{item.label}}</option>
+	</ng-container>
+</select>

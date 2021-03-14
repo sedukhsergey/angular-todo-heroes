@@ -1,22 +1,45 @@
 <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
-	<label for="name">Name <input class="form-control" name="name" ngModel required />
+	<label for="name">
+		<app-input
+			name="name"
+			[isRequired]="true"
+			defaultValue=""
+		></app-input>
+<!--		<input class="form-control" name="name" ngModel required />-->
 	</label>
 
-	<p>
+	<div>
 		<label for="gender">
-			<input type="radio" value="male" name="gender" ngModel> Male
-			<input type="radio" value="female" name="gender" ngModel> Female
-			<input type="radio" value="default" name="gender" ngModel> None
+			<app-radio *ngFor="let radio of radioList"
+				[title]="radio.title"
+				[groupName]="radio.name"
+				[value]="radio.value"
+			  [isRequired]="true"
+			></app-radio>
 		</label>
-	</p>
-
-	<div [ngSwitch]="itemForm.value.gender">
-		<p *ngSwitchCase="'male'">Male</p>
-		<p *ngSwitchCase="'female'">Female</p>
-		<p *ngSwitchDefault>No chosen</p>
+		<div [ngSwitch]="itemForm.value.gender">
+			<p *ngSwitchCase="'male'">Male</p>
+			<p *ngSwitchCase="'female'">Female</p>
+			<p *ngSwitchDefault>No chosen</p>
+		</div>
 	</div>
 
-	<button type="submit">Submit</button>
+	<div>
+		<label for="access"></label>
+		<app-checkbox
+			name="isSuccess"
+			[isRequired]="true"
+			[defaultValue]="true"
+		></app-checkbox>
+	</div>
+	<div>
+		<app-select
+			name="items"
+			[items]="items"
+			[defaultValue]="items[0]"
+		></app-select>
+	</div>
+	<button [disabled]="!itemForm.valid" type="submit">Submit</button>
 </form>
 
 
