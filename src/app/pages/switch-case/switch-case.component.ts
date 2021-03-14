@@ -1,7 +1,20 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Form, NgForm} from '@angular/forms';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {LoggerService} from '../../providers/logger/logger.service';
 import {EmittedValue} from '../../interfaces/input-form-value';
+import {SuccessData, SwitchCaseService} from './switch-case.service';
+
+interface People {
+  id: number;
+  label: string;
+}
+
+export interface FormValues {
+  gender: string;
+  name: string;
+  isSuccess: boolean;
+  peoples: People;
+}
 
 interface Gender {
   id: number;
@@ -48,18 +61,25 @@ export class SwitchCaseComponent implements OnInit {
   @ViewChild('itemForm') itemForm: NgForm;
   items = items;
   radioList: Gender[] = gendersList;
+  isLoading = false;
+  error = '';
   constructor(
-    private readonly loggerService: LoggerService
+    private readonly loggerService: LoggerService,
+    private readonly switchCaseService: SwitchCaseService
   ) { }
 
-  handleFormChange({field, value}: EmittedValue): void {
-    this.itemForm.value[field] = value;
-    this.loggerService.log(value)
-  }
-
   onSubmit(form: NgForm): void {
-    console.log('onSubmit form',form.value)
-
+    this.isLoading = true;
+    this.switchCaseService.saveForm(form.value)
+      .subscribe(
+        (data: SuccessData): void => {
+          this.isLoading = false
+        },
+        error => {
+          this.error = error.message
+          this.isLoading = false
+        }
+      )
   }
 
   ngOnInit(): void {

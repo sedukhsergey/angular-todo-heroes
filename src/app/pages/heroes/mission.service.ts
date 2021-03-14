@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Subject, Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,8 @@ import { Subject } from 'rxjs';
 export class MissionService {
   private missionAnnouncedSource = new Subject<string>();
   private missionConfirmedSource = new Subject<string>();
+  // missionAnnounced = new Subject<string>();
+  // missionConfirmed = new Subject<string>();
 
   missionAnnounced = this.missionAnnouncedSource.asObservable();
   missionConfirmed = this.missionConfirmedSource.asObservable();
@@ -19,4 +21,5 @@ export class MissionService {
   confirmMission(astronaut: string): void {
     this.missionConfirmedSource.next(astronaut);
   }
+
 }

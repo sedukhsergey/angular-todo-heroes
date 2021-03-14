@@ -2,7 +2,7 @@
 	<label for="name">
 		<app-input
 			name="name"
-			[isRequired]="true"
+			[isRequired]="false"
 			defaultValue=""
 		></app-input>
 <!--		<input class="form-control" name="name" ngModel required />-->
@@ -14,7 +14,7 @@
 				[title]="radio.title"
 				[groupName]="radio.name"
 				[value]="radio.value"
-			  [isRequired]="true"
+			  [isRequired]="false"
 			></app-radio>
 		</label>
 		<div [ngSwitch]="itemForm.value.gender">
@@ -28,18 +28,23 @@
 		<label for="access"></label>
 		<app-checkbox
 			name="isSuccess"
-			[isRequired]="true"
+			[isRequired]="false"
 			[defaultValue]="true"
 		></app-checkbox>
 	</div>
 	<div>
+		<label for="peoples">Peoples</label>
 		<app-select
-			name="items"
+			name="peoples"
 			[items]="items"
 			[defaultValue]="items[0]"
 		></app-select>
 	</div>
-	<button [disabled]="!itemForm.valid" type="submit">Submit</button>
+	<button [disabled]="!itemForm.valid || isLoading" type="submit">
+		<span *ngIf="!isLoading">Submit</span>
+		<span *ngIf="isLoading">Loading...</span>
+	</button>
+	<span class="error" *ngIf="error">{{error}}</span>
 </form>
 
 
