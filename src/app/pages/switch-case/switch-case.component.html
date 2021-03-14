@@ -28,8 +28,8 @@
 		<label for="access"></label>
 		<app-checkbox
 			name="isSuccess"
-			[isRequired]="false"
-			[defaultValue]="true"
+			[isRequired]="true"
+			[defaultValue]="false"
 		></app-checkbox>
 	</div>
 	<div>
@@ -40,7 +40,7 @@
 			[defaultValue]="items[0]"
 		></app-select>
 	</div>
-	<button [disabled]="!itemForm.valid || isLoading" type="submit">
+	<button [disabled]="!itemForm.valid || isLoading || !isFormTouched" type="submit">
 		<span *ngIf="!isLoading">Submit</span>
 		<span *ngIf="isLoading">Loading...</span>
 	</button>

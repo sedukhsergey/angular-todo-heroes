@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, ViewChild, AfterViewInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {LoggerService} from '../../providers/logger/logger.service';
-import {EmittedValue} from '../../interfaces/input-form-value';
 import {SuccessData, SwitchCaseService} from './switch-case.service';
+import {Subscription} from 'rxjs';
 
 interface People {
   id: number;
@@ -49,7 +49,7 @@ const items: Item[] = [{
     id: 5,
     label: 'Mary',
   }
-]
+];
 
 
 @Component({
@@ -57,32 +57,52 @@ const items: Item[] = [{
   templateUrl: './switch-case.component.html',
   styleUrls: ['./switch-case.component.css']
 })
-export class SwitchCaseComponent implements OnInit {
+export class SwitchCaseComponent implements AfterViewInit, OnDestroy {
   @ViewChild('itemForm') itemForm: NgForm;
   items = items;
   radioList: Gender[] = gendersList;
   isLoading = false;
   error = '';
+  isFormTouched = false;
   constructor(
     private readonly loggerService: LoggerService,
     private readonly switchCaseService: SwitchCaseService
   ) { }
+  $formSubscribe: Subscription;
 
   onSubmit(form: NgForm): void {
     this.isLoading = true;
     this.switchCaseService.saveForm(form.value)
       .subscribe(
         (data: SuccessData): void => {
-          this.isLoading = false
+          this.isLoading = false;
+          this.isFormTouched = false;
         },
         error => {
-          this.error = error.message
-          this.isLoading = false
+          this.error = error.message;
+          this.isLoading = false;
+          this.isFormTouched = false;
         }
-      )
+      );
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    if (this.itemForm.valueChanges) {
+      this.$formSubscribe = this.itemForm && this.itemForm.valueChanges.subscribe(
+        data => {
+          if (this.error) {
+            this.error = '';
+          }
+          if (!this.isFormTouched) {
+            this.isFormTouched = true;
+          }
+        }
+     );
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.$formSubscribe.unsubscribe();
   }
 
 }

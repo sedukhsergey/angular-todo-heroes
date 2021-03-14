@@ -14,7 +14,7 @@ export class InputFormComponent implements OnInit {
   loginText = 'Login';
   signUpText = 'Sign Up';
   gender = '';
-  secondExample = ''
+  secondExample = '';
   submitMessage = 'Some submit message';
   constructor() { }
   login() {
@@ -26,7 +26,7 @@ export class InputFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log('form',form.form.get('gender'))
+    console.log('form', form.form.get('gender'));
   }
 
   ngOnInit(): void {

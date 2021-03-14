@@ -10,7 +10,7 @@ export class CrisisListComponent implements OnInit {
   crisisList: Crisis[] = [
     {id: 11, name: 'One'},
     {id: 12, name: 'Two'},
-  ]
+  ];
   constructor() { }
 
   ngOnInit(): void {

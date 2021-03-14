@@ -18,13 +18,13 @@ export class TodosServerFetchingComponent implements OnInit {
   ) { }
   config: any = {
 
-  }
+  };
 
   ngOnInit(): void {
     this.todosServerFetchingService.getTodos()
       .subscribe((data => {
-        console.log('data',data)
-      }))
+        console.log('data', data);
+      }));
   }
 
 }

@@ -12,16 +12,16 @@ export class FirebaseFakeService {
   simulateFirebase(val: string, delay: number): Observable<string>{
     return timer(delay).pipe(map(index => {
       return val + ' ' + index;
-    }))
+    }));
   }
 
   getMessagesByInterval(): Observable<string> {
     return new Observable<string>(subscriber => {
       let count = 0;
       setInterval(() => {
-        subscriber.next(`Message ${count++}`)
-      }, 1000)
-    })
+        subscriber.next(`Message ${count++}`);
+      }, 1000);
+    });
 
   }
 }

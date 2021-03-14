@@ -9,7 +9,7 @@ import {map, take, switchMap, tap} from 'rxjs/operators';
 })
 export class HeroAsyncMessagesComponent implements OnInit {
   message$: Observable<string>;
-  count$: Observable<number>
+  count$: Observable<number>;
   private source = of('Bob', 'Andrew', 'Ann');
   array: string[] = [];
 
@@ -24,8 +24,8 @@ export class HeroAsyncMessagesComponent implements OnInit {
     this.source.pipe(
       map(i => i + 'sadf')
     ).subscribe(subscription => {
-      this.array.push(subscription)
-    })
+      this.array.push(subscription);
+    });
   }
 
   constructor() {}
@@ -40,6 +40,6 @@ export class HeroAsyncMessagesComponent implements OnInit {
   start() {
     this.count$ = interval(1000).pipe(
       tap(i => i + 1)
-    )
+    );
   }
 }

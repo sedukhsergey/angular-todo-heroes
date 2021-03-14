@@ -10,7 +10,7 @@ const HEROES = [
   {canFly: true, name: 'Second'},
   {canFly: false, name: 'Third'},
   {canFly: true, name: 'Fourth'},
-]
+];
 
 @Component({
   selector: 'app-flying-heroes',
@@ -19,21 +19,21 @@ const HEROES = [
 })
 export class FlyingHeroesComponent {
   heroes: FlyingHero[] = [];
-  canFly = true
+  canFly = true;
   constructor() { this.reset(); }
 
   addHero(name: string) {
     name = name.trim();
     if (!name) { return; }
-    console.log('this.canFly',this.canFly)
+    console.log('this.canFly', this.canFly);
     const hero = {name, canFly: this.canFly};
     this.heroes.push(hero);
     // this.heroes = [...this.heroes, hero]
   }
 
   onFlyChange() {
-    this.canFly = !this.canFly
-    console.log('this.canFly',this.canFly)
+    this.canFly = !this.canFly;
+    console.log('this.canFly', this.canFly);
   }
 
 

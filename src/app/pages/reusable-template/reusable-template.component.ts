@@ -32,7 +32,7 @@ const heroes: Hero[] = [{
     name: 'Mary',
     emotion: 'confused'
   }
-]
+];
 
 
 @Component({
@@ -59,17 +59,17 @@ export class ReusableTemplateComponent implements OnInit {
   showSad = false;
   hero: Hero | null = null;
   heroes = heroes;
-  anotherUser = {name: 'SOme another user name'}
+  anotherUser = {name: 'SOme another user name'};
   emptyHero = {name: 'None', emotion: 'Some None', id: 100};
   usersList = data;
   isClicked = false;
   currentItem = {
     name: 'Bob'
-  }
+  };
   constructor() { }
 
   ngOnInit(): void {
-    this.hero = this.heroes[0]
+    this.hero = this.heroes[0];
   }
 
   trackByItems(index: number, item: Item): number {
@@ -77,14 +77,14 @@ export class ReusableTemplateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log('form',form)
+    console.log('form', form);
   }
 
 
   setUppercaseName(value: string) {
-    console.log('this.form',this.form)
+    console.log('this.form', this.form);
     // const target = event.target as HTMLInputElement
-    console.log('value',value)
+    console.log('value', value);
     this.currentItem.name = value.toUpperCase();
   }
 
@@ -95,6 +95,6 @@ export class ReusableTemplateComponent implements OnInit {
   getClasses() {
     return {
       special: this.isClicked
-    }
+    };
   }
 }

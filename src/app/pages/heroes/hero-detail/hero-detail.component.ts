@@ -10,7 +10,7 @@ import {HeroService} from '../hero.service';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
-date: Date = new Date(1990, 4,12);
+date: Date = new Date(1990, 4, 12);
 @Input() hero?: Hero;
 
   constructor(

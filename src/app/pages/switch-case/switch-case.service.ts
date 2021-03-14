@@ -7,10 +7,10 @@ import {empty} from 'rxjs/internal/Observer';
 
 const mapAndContinueOnError = pipe(
   catchError(err => {
-    console.log("Caught Error, continuing")
+    console.log('Caught Error, continuing');
     return EMPTY;
   })
-)
+);
 
 export interface SuccessData {
   data: string;
@@ -38,7 +38,7 @@ export class SwitchCaseService {
   private handleError(operation = 'operation'): (error: Error) => Observable<Error> {
     return (error: any) => {
       this.log(`${operation} failed: ${error.message}`);
-      return throwError(error.error)
+      return throwError(error.error);
     };
   }
 

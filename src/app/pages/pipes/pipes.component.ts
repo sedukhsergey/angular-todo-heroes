@@ -5,7 +5,7 @@ type User = {
   capability: {
     name: string,
   }
-}
+};
 
 @Component({
   selector: 'app-pipes',
@@ -14,9 +14,9 @@ type User = {
 })
 export class PipesComponent implements OnInit {
   birthday: Date = new Date(1990, 5, 25);
-  name ='Bob';
+  name = 'Bob';
   power = 0;
-  text = ''
+  text = '';
   factor = 5;
   user: User | null = {
     name: 'Ann',

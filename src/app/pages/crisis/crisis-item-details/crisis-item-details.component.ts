@@ -17,7 +17,7 @@ interface Course {
   styleUrls: ['./crisis-item-details.component.css']
 })
 export class CrisisItemDetailsComponent implements OnInit {
-  course: Course | null = null
+  course: Course | null = null;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -31,9 +31,9 @@ export class CrisisItemDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.firebaseService.getMessagesByInterval()
       .subscribe(data => {
-        this.dataArray.push(data)
+        this.dataArray.push(data);
         this.data = data;
-      })
+      });
     this.hero$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         const id = params.get('id');

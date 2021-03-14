@@ -22,14 +22,14 @@ export class ModalContainerComponent implements OnInit {
 
   handleClose = () => {
     this.fadeType = 'out';
-  };
+  }
 
   transitionEnd(e: any): any {
-    if (e.propertyName !== 'opacity' || this.fadeType === 'in') return;
+    if (e.propertyName !== 'opacity' || this.fadeType === 'in') { return; }
 
     if (this.fadeType === 'out') {
       this.onClose();
     }
-  };
+  }
 
 }
