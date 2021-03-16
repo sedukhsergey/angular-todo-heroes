@@ -1,0 +1,5 @@
+<p *ngIf="metaData.error">error: {{metaData.error}}</p>
+<p *ngIf="metaData.isLoading">...isLoading</p>
+<div *ngFor="let hero of heroes">
+	<p>{{hero.name}}</p>
+</div>

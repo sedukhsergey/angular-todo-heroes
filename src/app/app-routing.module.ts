@@ -14,6 +14,7 @@ import {ModalComponent} from './pages/modal/modal.component';
 import {InputFormComponent} from './pages/input-form/input-form.component';
 import {ReusableTemplateComponent} from './pages/reusable-template/reusable-template.component';
 import {SwitchCaseComponent} from './pages/switch-case/switch-case.component';
+import {HeroesServerComponent} from './pages/heroes-server/heroes-server.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'input-form', component: InputFormComponent},
   { path: 'reusable-template', component: ReusableTemplateComponent},
   { path: 'switch-case', component: SwitchCaseComponent},
+  { path: 'heroes-server', component: HeroesServerComponent},
 ];
 
 @NgModule({

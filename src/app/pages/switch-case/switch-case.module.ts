@@ -6,6 +6,7 @@ import {RadioModule} from '../../components/radio/radio.module';
 import {InputModule} from '../../components/input/input.module';
 import {CheckboxModule} from '../../components/checkbox/checkbox.module';
 import {SelectModule} from '../../components/select/select.module';
+import {HighlightModule} from '../../diractives/highlight/highlight.module';
 
 
 
@@ -17,7 +18,8 @@ import {SelectModule} from '../../components/select/select.module';
     RadioModule,
     InputModule,
     CheckboxModule,
-    SelectModule
+    SelectModule,
+    HighlightModule,
   ]
 })
 export class SwitchCaseModule { }

@@ -27,6 +27,8 @@ import { TabContainerComponent } from './tab-container/tab-container.component';
 import {ReusableTemplateModule} from './pages/reusable-template/reusable-template.module';
 import {SwitchCaseModule} from './pages/switch-case/switch-case.module';
 import {RadioModule} from './components/radio/radio.module';
+import {HighlightModule} from './diractives/highlight/highlight.module';
+import {HeroesServerModule} from './pages/heroes-server/heroes-server.module';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import {RadioModule} from './components/radio/radio.module';
     ReusableTemplateModule,
     SwitchCaseModule,
     RadioModule,
+    HighlightModule,
+    HeroesServerModule,
   ],
   providers: [],
   exports: [

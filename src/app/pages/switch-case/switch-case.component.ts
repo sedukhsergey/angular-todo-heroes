@@ -60,6 +60,7 @@ const items: Item[] = [{
 export class SwitchCaseComponent implements AfterViewInit, OnDestroy {
   @ViewChild('itemForm') itemForm: NgForm;
   items = items;
+  color = 'yellow';
   radioList: Gender[] = gendersList;
   isLoading = false;
   error = '';

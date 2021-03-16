@@ -7,8 +7,8 @@ import {AddTodoComponent} from './add-todo/add-todo.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from '../../app-routing.module';
-import {AutofocusDirective} from '../../../directives/autofocus.directive';
-import {ClickStopPropagationDirective} from '../../../directives/click-stop-propagation.directive';
+import {AutofocusDirective} from '../../diractives/autofocus.directive';
+import {ClickStopPropagationDirective} from '../../diractives/click-stop-propagation.directive';
 
 
 @NgModule({
