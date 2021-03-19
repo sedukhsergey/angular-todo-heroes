@@ -1,5 +1,9 @@
-<p *ngIf="metaData.error">error: {{metaData.error}}</p>
-<p *ngIf="metaData.isLoading">...isLoading</p>
-<div *ngFor="let hero of heroes">
-	<p>{{hero.name}}</p>
+
+<p *ngIf="heroesMetadata.error">error: {{heroesMetadata.error}}</p>
+<p *ngIf="heroesMetadata.isLoading">...isLoading</p>
+<div class="container">
+	<div class="hero" *ngFor="let hero of heroes">
+	<span>{{hero.name}}</span>
+	</div>
 </div>
+<app-heroes-pagination></app-heroes-pagination>

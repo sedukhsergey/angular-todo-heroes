@@ -35,9 +35,6 @@ import {HeroesServerModule} from './pages/heroes-server/heroes-server.module';
     AppComponent,
   ],
   imports: [
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
-    // ),
     AppRoutingModule,
     CommonModule,
     BrowserModule,

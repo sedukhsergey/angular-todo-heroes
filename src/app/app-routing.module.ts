@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'reusable-template', component: ReusableTemplateComponent},
   { path: 'switch-case', component: SwitchCaseComponent},
   { path: 'heroes-server', component: HeroesServerComponent},
+  // { path: 'heroes-server/:page', component: HeroesServerComponent},
 ];
 
 @NgModule({

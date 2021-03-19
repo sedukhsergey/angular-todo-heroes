@@ -1,0 +1,13 @@
+<div class="pagination">
+	<nav class="container">
+		<a class="block" (click)="handlePrev()"><span class='item'><</span></a>
+		<a
+			*ngFor="let page of pagesList"
+			class="block"
+			[class.active]="page === activePage"
+			(click)="handleClick(page)
+
+"><span class='item'>{{page}}</span></a>
+		<a class="block" (click)="handleNext()"><span class='item'>></span></a>
+	</nav>
+</div>

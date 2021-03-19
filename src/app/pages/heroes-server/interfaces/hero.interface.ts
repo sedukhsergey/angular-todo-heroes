@@ -8,3 +8,8 @@ export interface MetaData {
  error: string;
  isLoading: boolean;
 }
+
+export interface PagesData {
+ maxPagesLength: null | number;
+}
+

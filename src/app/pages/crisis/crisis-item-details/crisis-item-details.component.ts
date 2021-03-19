@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import {switchMap, tap, timeout} from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 import {HeroService} from '../../heroes/hero.service';
-import {Observable, interval, timer} from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Observable} from 'rxjs';
 import {Hero} from '../../heroes/hero';
 import {FirebaseFakeService} from '../../../firebase-fake.service';
 
@@ -19,7 +18,7 @@ interface Course {
 export class CrisisItemDetailsComponent implements OnInit {
   course: Course | null = null;
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private service: HeroService,
     private firebaseService: FirebaseFakeService,
@@ -34,7 +33,7 @@ export class CrisisItemDetailsComponent implements OnInit {
         this.dataArray.push(data);
         this.data = data;
       });
-    this.hero$ = this.route.paramMap.pipe(
+    this.hero$ = this.activatedRoute.paramMap.pipe(
       switchMap((params: ParamMap) => {
         const id = params.get('id');
         return this.service.getHero(Number(id));

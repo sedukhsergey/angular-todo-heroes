@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import {HeroesServerService} from './heroes-server.service';
-import {Subscription} from 'rxjs';
 import {Hero, MetaData} from './interfaces/hero.interface';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -9,24 +9,30 @@ import {Hero, MetaData} from './interfaces/hero.interface';
   templateUrl: './heroes-server.component.html',
   styleUrls: ['./heroes-server.component.css']
 })
-export class HeroesServerComponent implements OnInit {
+export class HeroesServerComponent implements OnInit, OnDestroy {
   heroes: Hero[] = [];
-  metaData: MetaData = {
+  heroesMetadata: MetaData = {
     error: '',
     isLoading: false
-  }
+  };
+  heroesSubscription: Subscription;
+  heroesMetadataSubscription: Subscription;
   constructor(
-    private readonly heroesServerService: HeroesServerService
+    private readonly heroesServerService: HeroesServerService,
   ) {
   }
 
   ngOnInit(): void {
-    this.metaData = this.heroesServerService.getMetaData();
-    // this.isLoading = this.heroesServerService.getIsLoading();
-    this.heroesServerService.fetchHeroes()
-      .subscribe(data => {
-        this.heroes = data;
-      })
+    this.heroesMetadataSubscription = this.heroesServerService.heroesMetadata.subscribe(
+      data => this.heroesMetadata = data
+    );
+    this.heroesSubscription = this.heroesServerService.heroesSource.subscribe(
+      data => this.heroes = data
+    );
   }
 
+  ngOnDestroy(): void {
+    this.heroesSubscription.unsubscribe();
+    this.heroesMetadataSubscription.unsubscribe();
+  }
 }
