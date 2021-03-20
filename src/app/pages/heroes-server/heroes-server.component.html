@@ -1,7 +1,7 @@
 
-<p *ngIf="heroesMetadata.error">error: {{heroesMetadata.error}}</p>
-<p *ngIf="heroesMetadata.isLoading">...isLoading</p>
 <div class="container">
+	<div *ngIf="heroesMetadata.error">error: {{heroesMetadata.error}}</div>
+	<div *ngIf="heroesMetadata.isLoading">...isLoading</div>
 	<div class="hero" *ngFor="let hero of heroes">
 	<span>{{hero.name}}</span>
 	</div>

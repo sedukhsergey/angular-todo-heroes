@@ -48,10 +48,12 @@ export class HeroesServerService {
       );
   }
 
+  clearHeroes(): void {
+    this.heroesSource.next([]);
+  }
+
   getHeroesByPage(page: number): void {
-    setTimeout(() => {
-      this.heroesMetadata.next({isLoading: true, error: ''});
-    }, 0);
+    this.heroesMetadata.next({isLoading: true, error: ''});
     const from = page * 10;
     const to = from + 10;
     let params = new HttpParams();

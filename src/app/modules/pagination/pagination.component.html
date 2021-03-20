@@ -1,13 +1,20 @@
 <div class="pagination">
 	<nav class="container">
 		<a class="block" (click)="handlePrev()"><span class='item'><</span></a>
-		<a
+		<div
+			class="page-number-container"
 			*ngFor="let page of pagesList"
+		>
+		<a
 			class="block"
+			*ngIf="page !== null"
 			[class.active]="page === activePage"
-			(click)="handleClick(page)
-
-"><span class='item'>{{page}}</span></a>
+			(click)="handleClick(page)"
+		>
+			<span class='item'>{{page}}</span>
+		</a>
+			<span class="empty-block" *ngIf="page === null">...</span>
+		</div>
 		<a class="block" (click)="handleNext()"><span class='item'>></span></a>
 	</nav>
 </div>
