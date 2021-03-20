@@ -15,6 +15,7 @@ export class HeroesPaginationComponent implements OnInit, OnDestroy {
     isLoading: false
   };
   paginationList: (number|null)[] = [];
+  pagesList: (number|null)[] = [];
   activePage = 1;
   routerSubscription: Subscription;
   constructor(
@@ -33,11 +34,12 @@ export class HeroesPaginationComponent implements OnInit, OnDestroy {
         this.activePage = +page;
         this.heroesPaginationService.getPagesLength()
           .subscribe(data => {
+            this.pagesList = data;
             this.paginationList = this.heroesPaginationService.generatePaginationList({
               activePage: +page,
               pagesLength: data.length
             });
-          })
+          });
       }
     });
   }

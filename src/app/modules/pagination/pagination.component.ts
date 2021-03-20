@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -8,8 +8,8 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 export class PaginationComponent implements OnInit {
   @Output() handleChangePage: EventEmitter<number> = new EventEmitter();
   @Input() pagesList: (number|null)[] = [];
+  @Input() paginationList: (number|null)[] = [];
   @Input() activePage = 1;
-  paginationList: (number|null)[] = [];
   constructor(
   ) { }
 
