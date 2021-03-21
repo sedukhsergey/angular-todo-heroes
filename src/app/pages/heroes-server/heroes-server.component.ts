@@ -37,7 +37,9 @@ export class HeroesServerComponent implements OnInit, OnDestroy {
       if (page) {
         this.heroesServerService.clearHeroes();
         this.heroesServerService.getHeroesByPage(+page);
+        return;
       }
+      this.heroesServerService.getHeroesByPage(1);
     });
   }
 

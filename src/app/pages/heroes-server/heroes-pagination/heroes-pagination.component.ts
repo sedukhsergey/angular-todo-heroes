@@ -29,18 +29,19 @@ export class HeroesPaginationComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routerSubscription = this.activatedRoute.queryParamMap.subscribe((params: ParamMap) => {
-      const page = params.get('page');
-      if (page) {
-        this.activePage = +page;
-        this.heroesPaginationService.getPagesLength()
-          .subscribe(data => {
-            this.pagesList = data;
+      const page = params.get('page') || 1;
+      this.heroesPaginationService.getPagesLength()
+        .subscribe(data => {
+          this.pagesList = data;
+          if (data.length) {
+            this.activePage = +page;
             this.paginationList = this.heroesPaginationService.generatePaginationList({
               activePage: +page,
               pagesLength: data.length
-            });
           });
-      }
+          return;
+        }
+          });
     });
   }
 
