@@ -15,6 +15,7 @@ import {InputFormComponent} from './pages/input-form/input-form.component';
 import {ReusableTemplateComponent} from './pages/reusable-template/reusable-template.component';
 import {SwitchCaseComponent} from './pages/switch-case/switch-case.component';
 import {HeroesServerComponent} from './pages/heroes-server/heroes-server.component';
+import {DetectChangesComponent} from './pages/detect-changes/detect-changes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'reusable-template', component: ReusableTemplateComponent},
   { path: 'switch-case', component: SwitchCaseComponent},
   { path: 'heroes-server', component: HeroesServerComponent},
+  { path: 'detect-changes', component: DetectChangesComponent},
   // { path: 'heroes-server/:page', component: HeroesServerComponent},
 ];
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ContentChild, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 interface CustomForm {
   gender: string;
@@ -11,6 +11,7 @@ interface CustomForm {
   styleUrls: ['./input-form.component.css']
 })
 export class InputFormComponent implements OnInit {
+  @ViewChild('buttonRef', {static: true}) buttonRef: ElementRef<HTMLInputElement>;
   loginText = 'Login';
   signUpText = 'Sign Up';
   gender = '';
@@ -30,6 +31,7 @@ export class InputFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('buttonRef',this.buttonRef)
   }
 
 }

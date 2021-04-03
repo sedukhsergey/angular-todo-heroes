@@ -11,6 +11,7 @@ export class ListManagerComponent implements OnInit {
   title = 'list manager';
   counter = 0;
   todoList: TodoItem[];
+  name = ''
   constructor(private todoListService: TodoListService) {}
 
   ngOnInit(): void {

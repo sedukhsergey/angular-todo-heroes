@@ -29,6 +29,7 @@ import {SwitchCaseModule} from './pages/switch-case/switch-case.module';
 import {RadioModule} from './components/radio/radio.module';
 import {HighlightModule} from './diractives/highlight/highlight.module';
 import {HeroesServerModule} from './pages/heroes-server/heroes-server.module';
+import {DetectChangesModule} from './pages/detect-changes/detect-changes.module';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {HeroesServerModule} from './pages/heroes-server/heroes-server.module';
     RadioModule,
     HighlightModule,
     HeroesServerModule,
+    DetectChangesModule
   ],
   providers: [],
   exports: [
