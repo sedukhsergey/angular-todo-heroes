@@ -30,6 +30,7 @@ import {RadioModule} from './components/radio/radio.module';
 import {HighlightModule} from './diractives/highlight/highlight.module';
 import {HeroesServerModule} from './pages/heroes-server/heroes-server.module';
 import {DetectChangesModule} from './pages/detect-changes/detect-changes.module';
+import {ReactiveFormModule} from './pages/reactive-form/reactive-form.module';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import {DetectChangesModule} from './pages/detect-changes/detect-changes.module'
     RadioModule,
     HighlightModule,
     HeroesServerModule,
-    DetectChangesModule
+    DetectChangesModule,
+    ReactiveFormModule
   ],
   providers: [],
   exports: [

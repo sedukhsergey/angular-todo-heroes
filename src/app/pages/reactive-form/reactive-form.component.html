@@ -1,0 +1,73 @@
+<form
+  [formGroup]="profileForm"
+>
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
+  {{console}}
+  <div>
+    <label>
+      First Name:
+      <input type="text" formControlName="firstName">
+    </label>
+    <label>
+      Last Name:
+      <input type="text" formControlName="lastName">
+    </label>
+  </div>
+  <div class='address' formGroupName="address">
+    <h3>Address</h3>
+
+    <label>
+      Street:
+      <input type="text" formControlName="street">
+    </label>
+
+    <label>
+      City:
+      <input type="text" formControlName="city">
+    </label>
+
+    <label>
+      State:
+      <input type="text" formControlName="state">
+    </label>
+
+    <label>
+      Zip Code:
+      <input type="text" formControlName="zip">
+    </label>
+  </div>
+  <br/>
+  <div class="actions">
+    <button (click)="addTodo()" [disabled]="profileForm.disabled">ADD TODOD</button>
+  </div>
+  <div formArrayName="todos">
+    <div *ngFor="let todo of todos.controls; let i=index">
+      <label>
+        Todo:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+  </div>
+  <div class="user-info" formGroupName="selections">
+    <label>
+      Please chose your variant
+      <select formControlName="userSelections">
+        <option *ngFor="let option of optionsList" [value]='option.value'>{{option.label}}</option>
+      </select>
+    </label>
+  </div>
+    <div class="user-info" formGroupName="agreement">
+      <label>
+        Do you agree with a form?
+        <input type="checkbox" formControlName="isAgree">
+      </label>
+    </div>
+  <div class="actions">
+    <button
+      type="submit"
+      [disabled]="!profileForm.valid"
+    >SUBMIT</button>
+  </div>
+</form>

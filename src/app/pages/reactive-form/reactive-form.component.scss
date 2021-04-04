@@ -1,0 +1,21 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.user-info {
+
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    label {
+        width: 200px;
+    }
+}
+
+.actions {
+    width: 300px;
+}
